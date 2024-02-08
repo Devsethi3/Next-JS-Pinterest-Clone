@@ -53,12 +53,12 @@ const Header = () => {
                     >
                         Home
                     </Link>
-                    <Link
-                        href="/"
+                    <button
+                        onClick={() => router.push("/pin-builder")}
                         className="flex gap-2 px-5 py-2 items-center hover:bg-gray-100 rounded-full"
                     >
                         Create <IoMdAddCircleOutline className="" />
-                    </Link>
+                    </button>
                 </div>
                 <div className="relative w-[60%]">
                     <input
