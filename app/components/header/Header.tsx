@@ -32,7 +32,13 @@ const Header = () => {
         }
     };
 
-    console.log(session);
+    const onCreateClick = () => {
+        if (session) {
+            router.push("/pin-builder")
+        } else {
+            signIn()
+        }
+    }
 
     return (
         <>
@@ -54,7 +60,7 @@ const Header = () => {
                         Home
                     </Link>
                     <button
-                        onClick={() => router.push("/pin-builder")}
+                        onClick={() => onCreateClick()}
                         className="flex gap-2 px-5 py-2 items-center hover:bg-gray-100 rounded-full"
                     >
                         Create <IoMdAddCircleOutline className="" />
