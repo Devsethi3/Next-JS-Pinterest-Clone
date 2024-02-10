@@ -1,12 +1,11 @@
 import PinItem from "../Pins/PinItem";
 
-const PinList = ({ listOfPins }) => {
-
+const PinList = ({ listOfPins, dataIdArray }) => {
   return (
-    <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
+    <div className="columns-2 px-2 md:px-5 md:columns-3 lg:columns-4 xl:columns-5 mt-8 space-y-6 mx-auto">
       {listOfPins.map((item, index) => (
         <div key={index}>
-          <PinItem pin={item} />
+          <PinItem dataIdArray={dataIdArray} pin={item} />
         </div>
       ))}
     </div>

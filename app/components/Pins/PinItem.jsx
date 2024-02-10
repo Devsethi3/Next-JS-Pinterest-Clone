@@ -1,31 +1,34 @@
 import Image from "next/image";
+import Link from "next/link";
 
-const PinItem = ({ pin }) => {
-  console.log(pin);
+const PinItem = ({ pin, dataId }) => {
   return (
-    <div className="bg-indigo-200 p-4 rounded-md">
-      <Image
-        src={pin.image}
-        width={500}
-        height={500}
-        alt="post"
-        className="rounded-md"
-      />
-      <h3>{pin.title}</h3>
-      <div className="flex items-center gap-5">
+    <Link href={`/pin/${dataId}`}>
+      <div className="p-4 cursor-pointer rounded-md">
         <Image
-          src={pin.userImage}
-          width={40}
-          height={40}
-          alt="userImage"
-          className="rounded-full"
+          src={pin.image}
+          width={500}
+          height={500}
+          alt="post"
+          className="rounded-xl relative"
         />
-        <div>
-          <h4>{pin.userName}</h4>
-          <p className="mt-[-5px] text-sm text-gray-500">{pin.email}</p>
+        <h3 className="text-xl py-3 font-semibold">{pin.title}</h3>
+        <div className="flex items-center gap-2">
+          <Image
+            src={pin.userImage}
+            width={25}
+            height={25}
+            alt="userImage"
+            className="rounded-full"
+          />
+          <div>
+            <h4 className="text-gray-800 text-sm font-semibold">
+              {pin.userName}
+            </h4>
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 

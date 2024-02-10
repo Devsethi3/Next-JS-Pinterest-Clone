@@ -41,7 +41,7 @@ const Header = () => {
     }
 
     return (
-        <>
+        <div className="sticky top-[1rem] left-0">
             <div className="flex items-center justify-between">
                 <Link href="/">
                     <Image
@@ -100,7 +100,7 @@ const Header = () => {
                     )}
                 </div>
             </div>
-        </>
+        </div>
     );
 };
 
