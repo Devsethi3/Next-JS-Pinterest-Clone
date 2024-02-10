@@ -37,6 +37,7 @@ const Form = () => {
         getDownloadURL(storageRef).then(async (url) => {
           console.log("Download url", url);
           const postData = {
+            id: postId,
             title: title,
             desc: desc,
             link: link,

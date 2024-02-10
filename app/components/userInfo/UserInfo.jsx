@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { IoShareSocialSharp } from "react-icons/io5";
 import { MdLogout } from "react-icons/md";
 const UserInfo = ({ userInfo }) => {
-  console.log(userInfo);
+  // console.log(userInfo);
   const router = useRouter();
 
   const { data: session } = useSession();
@@ -48,3 +48,4 @@ const UserInfo = ({ userInfo }) => {
 };
 
 export default UserInfo;
+
