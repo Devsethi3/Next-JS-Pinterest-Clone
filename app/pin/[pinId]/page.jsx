@@ -10,23 +10,28 @@ import app from "@/firebaseConfig";
 function PinDetail({ params }) {
   const router = useRouter();
   const db = getFirestore(app);
-  console.log(params);
+  const [postId, setPostId] = useState();
 
   const [pinDetail, setPinDetail] = useState([]);
 
   useEffect(() => {
-    getPinDetail();
-  }, []);
+    // Set postId state only once when the component mounts
+    setPostId(params.pinId);
 
-  const getPinDetail = async () => {
-    const docRef = doc(db, "pinterest-post", params.pinId);
-    const docSnap = await getDoc(docRef);
-    if (docSnap.exists()) {
-      setPinDetail(docSnap.data());
-    } else {
-      console.log("No such document!");
-    }
-  };
+    // Fetch pin detail
+    const getPinDetail = async () => {
+      const docRef = doc(db, "pinterest-post", params.pinId);
+      const docSnap = await getDoc(docRef);
+      if (docSnap.exists()) {
+        setPinDetail(docSnap.data());
+      } else {
+        console.log("No such document!");
+      }
+    };
+
+    getPinDetail(); // Fetch pin detail on component mount
+  }, [params.pinId]); // Run this effect only when params.pinId changes
+
   return (
     <>
       {pinDetail ? (
@@ -42,7 +47,7 @@ function PinDetail({ params }) {
           >
             <PinImage pinDetail={pinDetail} />
             <div className="">
-              <PinInfo pinDetail={pinDetail} />
+              <PinInfo pinDetail={pinDetail} postId={postId} />
             </div>
           </div>
         </div>

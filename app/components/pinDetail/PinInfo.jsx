@@ -8,15 +8,15 @@ import app from "@/firebaseConfig";
 import { useState } from "react";
 import { useSession } from "next-auth/react";
 
-const PinInfo = ({ pinDetail }) => {
+const PinInfo = ({ pinDetail, postId }) => {
   const user = {
     name: pinDetail.userName,
     email: pinDetail.email,
     image: pinDetail.userImage,
   };
 
-  const { data: session } = useSession();
   const router = useRouter();
+  const { data: session } = useSession();
   const db = getFirestore(app);
   const [deleting, setDeleting] = useState(false);
 
@@ -31,10 +31,6 @@ const PinInfo = ({ pinDetail }) => {
       console.error("Error deleting post:", error);
       setDeleting(false);
     }
-  };
-
-  const handleEdit = () => {
-    router.push(`/edit-post/${pin.id}`);
   };
 
   return (
@@ -58,13 +54,6 @@ const PinInfo = ({ pinDetail }) => {
           >
             <FaTrashAlt className="text-sm" />
             <span className="font-medium">Delete Post</span>
-          </button>
-          <button
-            onClick={handleEdit}
-            className="flex items-center gap-2 text-white py-2 px-5 rounded-full bg-[#11bd5e] shadow-[0_1rem_30px_#11bd5e37]"
-          >
-            <FaRegEdit className="" />
-            <span className="font-medium">Edit Post</span>
           </button>
         </div>
       ) : null}

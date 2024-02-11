@@ -23,6 +23,12 @@ const Form = () => {
   const [file, setFile] = useState();
 
   const onSave = () => {
+    // Check if any required fields are empty or if a file has not been uploaded
+    if (!title || !desc || !link || !file) {
+      alert("Please fill in all fields and upload an image.");
+      return;
+    }
+
     setLoading(true);
     uploadFile();
   };
@@ -58,12 +64,12 @@ const Form = () => {
 
   return (
     <div>
-      <div className="bg-white p-16 rounded-2xl">
+      <div className="bg-white p-14 rounded-2xl">
         <div className="flex justify-end mb-6">
           <button
             onClick={() => onSave()}
             type="button"
-            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 inline-flex items-center"
+            className="text-white bg-blue-500 hover:bg-blue-800 focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 inline-flex items-center"
           >
             {loading ? (
               <svg
