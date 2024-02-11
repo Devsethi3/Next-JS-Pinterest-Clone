@@ -20,7 +20,7 @@ const PinItem = ({ pin }) => {
             alt="post"
             className="rounded-xl relative"
           />
-          <h3 className="text-xl py-3 font-semibold">{pin.title}</h3>
+          <h3 className="text-xl py-3 title font-semibold">{pin.title}</h3>
           <div className="flex items-center gap-2">
             <Image
               src={pin.userImage}

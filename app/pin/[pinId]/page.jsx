@@ -38,7 +38,7 @@ function PinDetail({ params }) {
         <div className=" bg-white md:p-12 rounded-2xl md:px-24 lg:px-36">
           <HiArrowSmallLeft
             className="text-5xl font-bold absolute left-[8%]
-       cursor-pointer hover:bg-gray-200 rounded-full p-2 "
+       cursor-pointer hover:bg-gray-200 back-button rounded-full p-2 "
             onClick={() => router.back()}
           />
           <div
