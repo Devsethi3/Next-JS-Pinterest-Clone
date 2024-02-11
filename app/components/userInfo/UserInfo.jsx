@@ -15,7 +15,7 @@ const UserInfo = ({ userInfo }) => {
   };
   return (
     <>
-      <div className="grid place-items-center mt-10">
+      <div className="grid place-items-center mt-10 mb-8">
         <Image
           className="rounded-full"
           src={userInfo.userImage}

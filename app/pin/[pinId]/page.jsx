@@ -10,6 +10,7 @@ import app from "@/firebaseConfig";
 function PinDetail({ params }) {
   const router = useRouter();
   const db = getFirestore(app);
+  console.log(params);
 
   const [pinDetail, setPinDetail] = useState([]);
 

@@ -41,7 +41,7 @@ const Header = () => {
     }
 
     return (
-        <div className="sticky top-[1rem] left-0">
+        <div className="sticky z-50 top-[1rem] left-0">
             <div className="flex items-center justify-between">
                 <Link href="/">
                     <Image
@@ -76,7 +76,7 @@ const Header = () => {
                     />
                     <FaSearch className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-4">
                     <FaBell className="rounded-full text-4xl p-2 hover:bg-gray-300 cursor-pointer" />
                     <IoChatbubbleEllipsesSharp className="rounded-full text-4xl p-2 cursor-pointer hover:bg-gray-300" />
                     {session?.user ? (
