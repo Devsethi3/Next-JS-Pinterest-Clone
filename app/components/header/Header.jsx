@@ -111,7 +111,7 @@ const Header = () => {
           />
           <FaSearch className="absolute search-icon left-4 top-1/2 transform -translate-y-1/2 text-gray-400" />
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex profile-info items-center gap-4">
           <FaBell className="rounded-full icon text-4xl p-2 hover:bg-gray-300 cursor-pointer" />
           <IoChatbubbleEllipsesSharp className="rounded-full icon text-4xl p-2 cursor-pointer hover:bg-gray-300" />
           {session?.user ? (

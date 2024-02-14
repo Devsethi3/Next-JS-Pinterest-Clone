@@ -127,7 +127,7 @@ body::-webkit-scrollbar-thumb {
     position: fixed;
     top: 0;
     right: -100%;
-    background: #ff8585;
+    background: #e87070;
     width: 0%;
     height: 100%;
     z-index: 100;
@@ -138,7 +138,7 @@ body::-webkit-scrollbar-thumb {
     padding-inline: 3rem;
     transition: all 0.4s ease;
   }
-  .back-button{
+  .back-button {
     display: none;
   }
   .show-menu {
@@ -146,10 +146,10 @@ body::-webkit-scrollbar-thumb {
     width: 75%;
     right: 0;
   }
-  .pin-button{
+  .pin-button {
     width: 100%;
   }
-  .delete-button{
+  .delete-button {
     justify-content: center;
   }
   .nav-link,
@@ -164,18 +164,15 @@ body::-webkit-scrollbar-thumb {
     justify-content: center;
     background: #f9f9f9;
   }
-  .header-top{
+  .header-top {
     top: 0;
   }
-  .header{
+  .header {
     height: 4.5rem;
     background: white;
   }
-  .grid-pin{
+  .grid-pin {
     margin-block: 0;
-  }
-  .head-nav{
-    /* justify-content: flex-start; */
   }
 }
 @media screen and (max-width: 640px) {
@@ -186,12 +183,12 @@ body::-webkit-scrollbar-thumb {
     width: 45px;
     height: 45px;
   }
-  .nav-text p{
-    font-size: .9rem;
+  .nav-text p {
+    font-size: 0.9rem;
     font-weight: 600;
   }
-  .nav-text span{
-    font-size: .8rem;
+  .nav-text span {
+    font-size: 0.8rem;
   }
   .nav-link,
   .nav-link-button {
@@ -199,8 +196,11 @@ body::-webkit-scrollbar-thumb {
     text-align: center;
     padding-block: 0.5rem;
   }
-  .nav-profile{
-    gap: .2rem;
+  .nav-profile {
+    gap: 0.2rem;
     display: flex;
+  }
+  .search-bar {
+    margin-right: 1rem;
   }
 }
