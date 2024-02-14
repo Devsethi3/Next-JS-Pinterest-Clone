@@ -64,7 +64,7 @@ const Form = () => {
 
   return (
     <div>
-      <div className="bg-white p-14 rounded-2xl">
+      <div className="bg-white form-builder p-14 rounded-2xl">
         <div className="flex justify-end mb-6">
           <button
             onClick={() => onSave()}
@@ -94,7 +94,7 @@ const Form = () => {
             )}
           </button>
         </div>
-        <div className="grid grid-cols-2 gap-10 items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 builder-grid gap-10 items-center">
           <UploadImage setFile={(file) => setFile(file)} />
           <div className="">
             <div className="w-[100%]">

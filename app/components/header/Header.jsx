@@ -1,14 +1,15 @@
 "use client";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
+import { collection, doc, getDocs, setDoc } from "firebase/firestore";
+import { FaSearch } from "react-icons/fa";
+import { signIn } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { FaBell } from "react-icons/fa";
 import { IoChatbubbleEllipsesSharp } from "react-icons/io5";
-import { FaSearch } from "react-icons/fa";
-import { signIn, useSession } from "next-auth/react";
-import { doc, setDoc } from "firebase/firestore";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
 import { HiOutlineMenu } from "react-icons/hi";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import app from "../../../firebaseConfig";
@@ -18,6 +19,8 @@ const Header = () => {
   const { data: session } = useSession();
   const [isOpen, setIsOpen] = useState(false);
   const [showOverlay, setShowOverlay] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredData, setFilteredData] = useState([]);
   const router = useRouter();
 
   useEffect(() => {
@@ -44,11 +47,28 @@ const Header = () => {
   const onCreateClick = () => {
     if (session) {
       router.push("/pin-builder");
+      toggle();
     } else {
       signIn();
     }
   };
-  
+
+  const onFilterSearch = async (e) => {
+    const value = e.target.value.toLowerCase();
+    setSearchTerm(value); // Update search term state
+
+    const filterRef = collection(db, "pinterest-post");
+    const snapshot = await getDocs(filterRef);
+    const filterList = snapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+    const filteredData = filterList.filter((item) =>
+      item.title.toLowerCase().includes(value)
+    );
+    setFilteredData(filteredData); // Update filtered data state
+  };
+
   return (
     <div className="sticky header-top z-50 top-[1rem] left-0">
       <div className="flex header h-[5rem] items-center head-nav justify-between">
@@ -90,7 +110,7 @@ const Header = () => {
                 alt="user"
                 className="rounded-full user-img p-2 hover:bg-[#ffffff4c]"
               />
-              <p className="font-medium">{session.user.name}</p>
+              <p className="font-medium text-white">{session.user.name}</p>
             </div>
           ) : null}
           <IoCloseCircleOutline
@@ -103,6 +123,7 @@ const Header = () => {
         )}
         <div className="relative search-bar w-[60%]">
           <input
+            onChange={onFilterSearch}
             className="bg-gray-100 outline-none search-box w-full py-2 pl-12 pr-4 rounded-full"
             type="text"
             name="search"

@@ -4,7 +4,7 @@ import "./globals.css";
 import Provider from "./Provider";
 import Header from "./components/header/Header";
 
-const outfit = Outfit({ subsets: ["latin"] });
+const outfit = Outfit ({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Pinterest - Your Visual Inspiration",

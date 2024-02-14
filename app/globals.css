@@ -22,7 +22,7 @@ body::-webkit-scrollbar-thumb {
 .container {
   max-width: 1380px;
   margin-inline: auto;
-  padding: 1rem 0;
+  padding: 1rem .75rem;
 }
 .loader {
   width: 48px;
@@ -98,7 +98,17 @@ body::-webkit-scrollbar-thumb {
   .container {
     max-width: 1024px;
   }
+  .builder-grid {
+    grid-template-columns: 1fr;
+  }
+  .form-builder,
+  .builder-parent {
+    background: none;
+    border-radius: none;
+    padding: 0;
+  }
 }
+/* bg-[#f2f2f2] builder-parent rounded-3xl min-h-screen p-8 px-[60px] md:px-[160px] */
 @media screen and (max-width: 1024px) {
   .container {
     max-width: 768px;
@@ -201,6 +211,6 @@ body::-webkit-scrollbar-thumb {
     display: flex;
   }
   .search-bar {
-    margin-right: 1rem;
+    margin-right: .5rem;
   }
 }

@@ -6,7 +6,7 @@ const UploadImage = ({ setFile }) => {
   const [selectedFile, setSelectedFile] = useState();
   return (
     <>
-      <div className="flex items-center bg-gray-100 justify-center w-full  rounded-md">
+      <div className="flex items-center bg-gray-100 justify-center w-full rounded-md">
         <div className="w-full p-8 round">
           <label
             htmlFor="dropzone-file"
